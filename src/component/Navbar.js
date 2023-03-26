@@ -12,10 +12,10 @@ export default function Navbar() {
           </div>
 
           <div className="right">
+            <button className="btn btn-primary">Login</button>
             <NavLink to="/Form" className={"link"}>
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary ms-2">Book a Demo</button>
             </NavLink>
-            <button className="btn btn-primary ms-2">Book a Demo</button>
           </div>
         </nav>
         <ul className="nav-title d-flex flex-row justify-content-end text-white">

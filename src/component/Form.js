@@ -8,23 +8,39 @@ export default function Form() {
   const [usererr, setUsererr] = useState(false);
   const [email, setEmail] = useState("");
   const [emailerr, setEmailerr] = useState();
-
+  const [cmd, setCmd] = useState("");
+  const [num, setNum] = useState("");
+  const [numerr, setNumerr] = useState();
+  const textReset = React.useRef();
+  const emailReset = React.useRef();
+  const numberReset = React.useRef();
+  const commentReset = React.useRef();
   const handleSubmit = (event) => {
+    alert("form submitted");
     event.preventDefault(); // 👈️ prevent page refresh
+    textReset.current.value = "";
+    emailReset.current.value = "";
+    numberReset.current.value = "";
+    commentReset.current.value = "";
+    // access input values here
+    console.log("Name =>", name);
+    console.log("Email =>", email);
+    console.log("Number =>", num);
+    console.log("Comment =>", cmd);
 
-    // 👇️ access input values here
-    console.log("Name 👉️", name);
-    console.log("Email 👉️", email);
-    // console.log("select 👉️", select);
-
-    // 👇️ clear all input values in the form
+    // clear all input values in the form
     setName("");
     setEmail("");
+    setNum("");
+    setCmd("");
   };
 
   // username Validation
   function userHandler(e) {
-    let item = e.target.value;
+    setName(e.target.value);
+    let item = e.target.value.replace(/[^a-z]/gi, "");
+    setName(item);
+    
     if (item.length < 3) {
       setUsererr(true);
     } else {
@@ -42,12 +58,28 @@ export default function Form() {
     );
   }
 
+  // Text area message
+
+  function comment(e) {
+    setCmd(e.target.value);
+  }
+
+  // Number input
+  function number(e) {
+    setNum(e.target.value);
+    if (num.length === 9) {
+      setNumerr(true);
+    } else {
+      setNumerr(false);
+    }
+  }
+
   return (
     <>
       <header className="form">
         <img src={bg} alt="" className="w-100" />
       </header>
-      <div className="container w-50 bg-white text-center mt-5 pt-3 mb-5">
+      <div className="container w-50 bg-white text-center mt-5 pt-3">
         <img src={Union} alt="" className="w-25 d-block m-auto" />
         <form action="" className="ps-5 pe-5" onSubmit={handleSubmit}>
           <input
@@ -58,9 +90,13 @@ export default function Form() {
             placeholder="Full Name"
             style={{ outline: "none" }}
             onChange={userHandler}
+            required
+            ref={textReset}
           />
           <span className="text-danger d-block">
-            {usererr === true ? "Your name must be Three letter." : ""}
+            {usererr === true
+              ? "Your name must be Three letter without number included."
+              : ""}
           </span>
           <input
             type="email"
@@ -70,6 +106,8 @@ export default function Form() {
             placeholder="Enter Email"
             style={{ outline: "none" }}
             onChange={emailHandler}
+            required
+            ref={emailReset}
           />
           <span className="text-danger d-block">
             {emailerr === false ? (
@@ -100,7 +138,13 @@ export default function Form() {
             className="w-75 mt-3 d-inline mb-3 p-2 shadow border-0 rounded"
             placeholder="Number"
             style={{ outline: "none" }}
+            onChange={number}
+            required
+            ref={numberReset}
           />
+          <span className="text-danger d-block">
+            {numerr === false ? "Your number must be 10 Digit." : ""}
+          </span>
           <textarea
             id="comment"
             name="w3review"
@@ -109,6 +153,9 @@ export default function Form() {
             className="shadow border-0 rounded"
             placeholder="Type something here..."
             style={{ outline: "none" }}
+            onChange={comment}
+            required
+            ref={commentReset}
           />
           <button
             type="submit"
