@@ -318,3 +318,32 @@ footer h6 {
     top: 0;
     z-index: -1;
 }
+
+.form img {
+    opacity: 0.9;
+    
+}
+
+.icon {
+    display: inline;
+    position: relative;
+    left: 30px;
+}
+
+.icon img {
+    width: 23px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.nmem {
+    width: 78%;
+}
+
+.number {
+    width: 57%;
+}
