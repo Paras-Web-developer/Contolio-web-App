@@ -7,7 +7,6 @@ import Pricing from "../pages/Pricing";
 import Comparison from "../pages/Comparison";
 import Footer from "../component/Footer";
 import Form from "../component/Form";
-
 export default function Routing() {
   return (
     <>
@@ -18,10 +17,9 @@ export default function Routing() {
           <Route path="Feature" element={<Feature />}></Route>
           <Route path="Comparison" element={<Comparison />}></Route>
           <Route path="Pricing" element={<Pricing />}></Route>
-          <Route path="Form" element={<Form/>}></Route>
+          <Route path="Form" element={<Form />}></Route>
         </Routes>
-      <Footer />
-      
+        <Footer />
       </BrowserRouter>
     </>
   );

@@ -6,6 +6,7 @@ import iphone from "../assets/image/iphone.png";
 import Card from "../component/card";
 import Storebox from "../component/storebox";
 import { AppleStore, PlayStore } from "../Utils/Images";
+import { NavLink } from "react-router-dom";
 
 export default function Home() {
   let section1 = {
@@ -55,16 +56,16 @@ export default function Home() {
     download: "Download On the",
   };
   let playstore = {
-    src:PlayStore,
+    src: PlayStore,
     download: "Download On the",
     play: "Play Store",
   };
   return (
     <>
-      <section className="home ms-4">
+      <section className="home ms-5 ps-4">
         <Card props={section1} />
       </section>
-      <section className="building d-flex justify-content-around">
+      <section className="building d-flex justify-content-around mt-5">
         <div className="building-img">
           <img src={building} alt="" />
         </div>
@@ -85,9 +86,14 @@ export default function Home() {
         </div>
         <div className="phone-text pt-5 mt-5">
           <Card props={section4} />
-          <div className="d-flex ms-5">
-            <Storebox props={Appstore} />
-            <Storebox props={playstore} />
+          <div className="d-flex">
+            <NavLink to="https://www.apple.com/in/app-store/">
+              <Storebox props={Appstore} />
+            </NavLink>
+
+            <NavLink to="https://play.google.com/">
+              <Storebox props={playstore} />
+            </NavLink>
           </div>
         </div>
       </section>
