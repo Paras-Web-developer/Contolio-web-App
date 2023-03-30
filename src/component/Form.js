@@ -1,5 +1,6 @@
 import React from "react";
-import { Union, emailgif, usergif, phonegif } from "../Utils/Images";
+import {Union,emailgif,usergif,phonegif,loadinggif,
+} from "../Utils/Images";
 import bg from "../assets/image/unsplash_hCU4fimRW-c.png";
 import { useState } from "react";
 
@@ -16,17 +17,30 @@ export default function Form() {
   const numberReset = React.useRef();
   const commentReset = React.useRef();
   const handleSubmit = (event) => {
-    alert("form submitted");
+    alert("Do you wanna submit form");
+
     event.preventDefault(); // 👈️ prevent page refresh
     textReset.current.value = "";
     emailReset.current.value = "";
     numberReset.current.value = "";
     commentReset.current.value = "";
     // access input values here
-    console.log("Name =>", name);
-    console.log("Email =>", email);
-    console.log("Number =>", num);
-    console.log("Comment =>", cmd);
+
+    document.getElementById("load").style.display = "inline";
+    document.getElementById("btn").style.display = "inline";
+    document.getElementById("btn").style.display = "none";
+    // setTimeout
+    setTimeout(() => {
+      document.getElementById("load").style.display = "none";
+      document.getElementById("btn").style.display = "inline";
+      console.log("Name =>", name);
+      console.log("Email =>", email);
+      console.log("Number =>", num);
+      console.log("Message =>", cmd);
+    }, 5000);
+    setTimeout(() => {
+      alert("Request sended Successfuly");
+    }, 5200);
 
     // clear all input values in the form
     setName("");
@@ -34,7 +48,6 @@ export default function Form() {
     setNum("");
     setCmd("");
   };
-  // setTimeout(handleSubmit,3000);
 
   // username Validation
   function userHandler(e) {
@@ -72,7 +85,8 @@ export default function Form() {
   // Number input
   function number(e) {
     setNum(e.target.value);
-    if (num.length === 9) {
+
+    if (num.length === 9 || num.length === 0) {
       setNumerr(true);
     } else {
       setNumerr(false);
@@ -177,10 +191,10 @@ export default function Form() {
           </div>
           <button
             type="submit"
-            id="btn"
-            className="btn btn-primary m-4 p-3 ps-5 pe-5"
+            className="btn btn-primary m-4 p-3 ps-5 pe-5 loading-btn"
           >
-            Book a Demo
+            <img src={loadinggif} alt="" id="load" />
+            <h6 id="btn">Book a Demo</h6>
           </button>
         </form>
       </div>

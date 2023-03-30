@@ -1,6 +1,7 @@
 import React from "react";
 import unionBlue from "../assets/image/UnionBlue.png";
 import tik from "../assets/image/tik.png";
+import { NavLink } from "react-router-dom";
 
 export default function Pricing() {
   return (
@@ -42,9 +43,11 @@ export default function Pricing() {
               <img src={tik} alt="" />
               <h6>Continuous Software Updates</h6>
             </div>
-            <button className="btn btn-primary mt-3 w-50 mb-2">
-              Book a Demo
-            </button>
+            <NavLink to="/form">
+              <button className="btn btn-primary mt-3 w-50 mb-2">
+                Book a Demo
+              </button>
+            </NavLink>
           </div>
           <div className="pricing-r-bottom ">
             <h6>Onboardng fee based on Portfolio size.</h6>

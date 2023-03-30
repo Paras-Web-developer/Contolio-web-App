@@ -2,7 +2,12 @@ import React from "react";
 import Union from "../assets/image/Union.png";
 import border from "../assets/image/border.png";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function Navbar() {
+  const Navi = useNavigate();
+  function Booking() {
+    Navi("/booking.js");
+  }
   return (
     <>
       <header className="">
@@ -12,7 +17,9 @@ export default function Navbar() {
           </div>
 
           <div className="right">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn btn-primary" onClick={Booking}>
+              Login
+            </button>
             <NavLink to="/Form" className={"link"}>
               <button className="btn btn-primary ms-2">Book a Demo</button>
             </NavLink>
