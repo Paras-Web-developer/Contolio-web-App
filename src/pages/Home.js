@@ -7,6 +7,7 @@ import Card from "../component/card";
 import Storebox from "../component/storebox";
 import { AppleStore, PlayStore } from "../Utils/Images";
 import { NavLink } from "react-router-dom";
+import Navbar from "../component/Navbar";
 
 export default function Home() {
   let section1 = {
@@ -62,6 +63,7 @@ export default function Home() {
   };
   return (
     <>
+      <Navbar />
       <section className="home ms-5 ps-4">
         <Card props={section1} />
       </section>

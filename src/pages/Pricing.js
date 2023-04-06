@@ -2,10 +2,12 @@ import React from "react";
 import unionBlue from "../assets/image/UnionBlue.png";
 import tik from "../assets/image/tik.png";
 import { NavLink } from "react-router-dom";
+import Navbar from "../component/Navbar";
 
 export default function Pricing() {
   return (
     <>
+    <Navbar />
       <div className="pricing w-100 text-center text-white">
         <h2>Pricing</h2>
         <h5>Designed for all property managers sizes</h5>
