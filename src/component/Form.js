@@ -1,8 +1,14 @@
 import React from "react";
-import {Union,emailgif,usergif,phonegif,loadinggif,
+import {
+  Union,
+  emailgif,
+  usergif,
+  phonegif,
+  loadinggif,
 } from "../Utils/Images";
 import bg from "../assets/image/unsplash_hCU4fimRW-c.png";
 import { useState } from "react";
+import Navbar from "./Navbar";
 
 export default function Form() {
   const [name, setName] = useState("");
@@ -95,10 +101,11 @@ export default function Form() {
 
   return (
     <>
+      <Navbar />
       <header className="form">
         <img src={bg} alt="" className="w-100" />
       </header>
-      <div className="container w-50 bg-white text-center mt-5 pt-3">
+      <div className="container w-50 bg-white text-center mt-3 pt-3">
         <img src={Union} alt="" className="w-25 d-block m-auto" />
         <form action="" className="ps-5 pe-5" onSubmit={handleSubmit}>
           <div>
@@ -114,6 +121,7 @@ export default function Form() {
               style={{ outline: "none" }}
               onChange={userHandler}
               required
+              value={name}
               ref={textReset}
             />
             <span className="text-danger d-block">
@@ -162,7 +170,6 @@ export default function Form() {
             </div>
             <input
               type="number"
-              onwheel="this.blur()"
               name=""
               id="number"
               className="number mt-3 d-inline mb-3 p-2 ps-5 shadow border-0 rounded"
@@ -178,7 +185,7 @@ export default function Form() {
 
             <textarea
               id="comment"
-              name="w3review"
+              name="comment"
               rows="4"
               cols="50"
               className="shadow ms-3 p-2 border-0 rounded"

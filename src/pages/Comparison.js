@@ -1,5 +1,7 @@
 import React from "react";
 import ComparisionDiv from "../component/comparisionDiv";
+import Navbar from "../component/Navbar";
+
 export default function Comparison() {
   const comcard1 = {
     head1: "Service",
@@ -33,11 +35,14 @@ export default function Comparison() {
       "Management is just one click away from pulling out overall portfolio view and detailed reporting.",
   };
   return (
+    <>
+    <Navbar />
     <div className="Comparison">
       <div className="paras">
         <ComparisionDiv props={comcard1} />
         <ComparisionDiv props={comcard2} />
       </div>
     </div>
+    </>
   );
 }

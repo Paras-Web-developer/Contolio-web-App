@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../component/card";
+import Navbar from "../component/Navbar";
 
 export default function Feature() {
   let section3 = {
@@ -16,6 +17,7 @@ export default function Feature() {
   };
   return (
     <>
+      <Navbar />
       <div className="feature">
         <div className=" ">
           <Card props={section3} />

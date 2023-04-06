@@ -5,9 +5,7 @@ export default function card({ props }) {
   // console.log(props, "skhcdc");
   return (
     <>
-      <div
-        className={`${props.main} mt-5 ${props.margin} ${props.width}`}
-      >
+      <div className={`${props.main} mt-5 ${props.margin} ${props.width}`}>
         <h1 className={`text-${props.color} ${props.margin}`}>
           {props.header}
           <br />
